@@ -3,7 +3,7 @@ import { ListPlayers } from "@/features/players/components/list";
 
 const ListPlayersRoute = () => {
   return (
-    <ContentLayout title="">
+    <ContentLayout title="Listagem de jogadores">
       <ListPlayers />
     </ContentLayout>
   );

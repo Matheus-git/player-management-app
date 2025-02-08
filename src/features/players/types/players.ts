@@ -13,7 +13,7 @@ export type jerseyNumber = {
 };
 
 export type status = {
-  currentStatus: string;
+  currentStatus: "Active" | "Injured" | "Suspended";
 };
 
 export type player = {
