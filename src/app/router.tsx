@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router";
-import App from "./routes/app/App";
+import List from "./routes/player/list";
 
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<List />} />
     </Routes>
   );
 };

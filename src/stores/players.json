@@ -1,0 +1,422 @@
+[
+  {
+    "id": 1,
+    "name": "João Silva",
+    "birthdate": "15/03/1995",
+    "photo": "joao-silva.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.8,
+      "weight": 75,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Forward"
+    },
+    "jerseyNumber": {
+      "number": 9
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Carlos Souza",
+    "birthdate": "22/07/1990",
+    "photo": "carlos-souza.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.75,
+      "weight": 70,
+      "preferredFoot": "Left"
+    },
+    "position": {
+      "primary": "Midfielder"
+    },
+    "jerseyNumber": {
+      "number": 23
+    },
+    "status": {
+      "currentStatus": "Injured"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Miguel Oliveira",
+    "birthdate": "05/11/1988",
+    "photo": "miguel-oliveira.jpg",
+    "nationality": "Portuguese",
+    "physicalData": {
+      "height": 1.85,
+      "weight": 80,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Defender"
+    },
+    "jerseyNumber": {
+      "number": 34
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Lucas Fernandes",
+    "birthdate": "18/04/1992",
+    "photo": "lucas-fernandes.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.78,
+      "weight": 72,
+      "preferredFoot": "Ambidextrous"
+    },
+    "position": {
+      "primary": "Forward"
+    },
+    "jerseyNumber": {
+      "number": 56
+    },
+    "status": {
+      "currentStatus": "Suspended"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Ricardo Alves",
+    "birthdate": "30/09/1993",
+    "photo": "ricardo-alves.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.9,
+      "weight": 85,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Goalkeeper"
+    },
+    "jerseyNumber": {
+      "number": 4
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Felipe Costa",
+    "birthdate": "12/06/1994",
+    "photo": "felipe-costa.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.77,
+      "weight": 74,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Midfielder"
+    },
+    "jerseyNumber": {
+      "number": 61
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 7,
+    "name": "André Santos",
+    "birthdate": "25/02/1991",
+    "photo": "andre-santos.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.82,
+      "weight": 78,
+      "preferredFoot": "Left"
+    },
+    "position": {
+      "primary": "Defender"
+    },
+    "jerseyNumber": {
+      "number": 16
+    },
+    "status": {
+      "currentStatus": "Injured"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Pedro Lima",
+    "birthdate": "14/08/1996",
+    "photo": "pedro-lima.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.79,
+      "weight": 73,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Forward"
+    },
+    "jerseyNumber": {
+      "number": 35
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Gustavo Pereira",
+    "birthdate": "03/12/1989",
+    "photo": "gustavo-pereira.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.84,
+      "weight": 79,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Defender"
+    },
+    "jerseyNumber": {
+      "number": 22
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Rafael Gonçalves",
+    "birthdate": "20/05/1997",
+    "photo": "rafael-goncalves.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.81,
+      "weight": 76,
+      "preferredFoot": "Left"
+    },
+    "position": {
+      "primary": "Defender"
+    },
+    "jerseyNumber": {
+      "number": 39
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Bruno Martins",
+    "birthdate": "07/10/1990",
+    "photo": "bruno-martins.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.83,
+      "weight": 77,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Defender"
+    },
+    "jerseyNumber": {
+      "number": 28
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Diego Almeida",
+    "birthdate": "15/01/1993",
+    "photo": "diego-almeida.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.76,
+      "weight": 71,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Midfielder"
+    },
+    "jerseyNumber": {
+      "number": 42
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Marcos Ribeiro",
+    "birthdate": "22/03/1994",
+    "photo": "marcos-ribeiro.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.8,
+      "weight": 74,
+      "preferredFoot": "Left"
+    },
+    "position": {
+      "primary": "Forward"
+    },
+    "jerseyNumber": {
+      "number": 51
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Thiago Nunes",
+    "birthdate": "11/07/1992",
+    "photo": "thiago-nunes.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.88,
+      "weight": 82,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Goalkeeper"
+    },
+    "jerseyNumber": {
+      "number": 53
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Eduardo Costa",
+    "birthdate": "28/09/1995",
+    "photo": "eduardo-costa.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.78,
+      "weight": 73,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Midfielder"
+    },
+    "jerseyNumber": {
+      "number": 62
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Leonardo Ferreira",
+    "birthdate": "16/04/1991",
+    "photo": "leonardo-ferreira.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.81,
+      "weight": 75,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Forward"
+    },
+    "jerseyNumber": {
+      "number": 68
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Rodrigo Santos",
+    "birthdate": "09/12/1996",
+    "photo": "rodrigo-santos.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.82,
+      "weight": 76,
+      "preferredFoot": "Left"
+    },
+    "position": {
+      "primary": "Defender"
+    },
+    "jerseyNumber": {
+      "number": 72
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Alexandre Rocha",
+    "birthdate": "24/06/1990",
+    "photo": "alexandre-rocha.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.79,
+      "weight": 72,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Midfielder"
+    },
+    "jerseyNumber": {
+      "number": 74
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Felipe Almeida",
+    "birthdate": "17/03/1994",
+    "photo": "felipe-almeida.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.81,
+      "weight": 77,
+      "preferredFoot": "Right"
+    },
+    "position": {
+      "primary": "Midfielder"
+    },
+    "jerseyNumber": {
+      "number": 79
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Renato Silva",
+    "birthdate": "02/11/1993",
+    "photo": "renato-silva.jpg",
+    "nationality": "Brazilian",
+    "physicalData": {
+      "height": 1.84,
+      "weight": 80,
+      "preferredFoot": "Left"
+    },
+    "position": {
+      "primary": "Defender"
+    },
+    "jerseyNumber": {
+      "number": 92
+    },
+    "status": {
+      "currentStatus": "Active"
+    }
+  }
+]
