@@ -2,7 +2,7 @@ import { FilterListPlayers } from "./filter";
 import { OrderListPlayers } from "./order";
 import { usePlayers } from "@/app/provider";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router";
 type statusClassType = {
   Active: string;
   Injured: string;
@@ -18,9 +18,9 @@ const statusClass: statusClassType = {
 export const ListPlayers = () => {
   const { players: playersContext } =
     usePlayers();
-  const [players, setPlayers] = useState(
-    playersContext
-  );
+  const [players, setPlayers] = useState([
+    ...playersContext,
+  ]);
   const [filter, setFilter] =
     useState<string>("");
   const [orderBy, setOrderBy] = useState("name");
@@ -30,43 +30,46 @@ export const ListPlayers = () => {
   }, [playersContext]);
 
   useEffect(() => {
-    let filteredPlayers = players;
+    setPlayers((prevPlayers) =>
+      [...prevPlayers].sort(
+        (playerA, playerB) => {
+          if (orderBy == "name") {
+            return playerA.name.localeCompare(
+              playerB.name
+            );
+          } else if (orderBy == "position") {
+            return playerA.position.primary.localeCompare(
+              playerB.position.primary
+            );
+          } else {
+            return playerA.status.currentStatus.localeCompare(
+              playerB.status.currentStatus
+            );
+          }
+        }
+      )
+    );
+  }, [orderBy]);
+
+  useEffect(() => {
+    let filteredPlayers = playersContext;
 
     if (filter !== "") {
-      filteredPlayers = filteredPlayers.filter(
-        (player) =>
-          [
-            player.name,
-            player.position.primary,
-            player.status.currentStatus,
-          ].some((field) =>
-            field
-              .toLowerCase()
-              .includes(filter.toLowerCase())
-          )
-      );
-    }
-
-    if (orderBy === "name") {
-      filteredPlayers.sort((a, b) =>
-        a.name.localeCompare(b.name)
-      );
-    } else if (orderBy === "position") {
-      filteredPlayers.sort((a, b) =>
-        a.position.primary.localeCompare(
-          b.position.primary
-        )
-      );
-    } else if (orderBy === "status") {
-      filteredPlayers.sort((a, b) =>
-        a.status.currentStatus.localeCompare(
-          b.status.currentStatus
+      filteredPlayers = players.filter((player) =>
+        [
+          player.name,
+          player.position.primary,
+          player.status.currentStatus,
+        ].some((field) =>
+          field
+            .toLowerCase()
+            .includes(filter.toLowerCase())
         )
       );
     }
 
     setPlayers(filteredPlayers);
-  }, [filter, orderBy, players]);
+  }, [filter]);
 
   return (
     <>
@@ -89,53 +92,56 @@ export const ListPlayers = () => {
         className="divide-y divide-gray-100"
       >
         {players.map((player) => (
-          <li
-            key={player.id}
-            className="flex justify-between gap-x-6 py-5"
-          >
-            <div className="flex min-w-0 gap-x-4">
-              <img
-                alt=""
-                src={player.photo}
-                className="size-12 flex-none rounded-full bg-gray-500"
-              />
-              <div className="min-w-0 flex-auto">
-                <p className="text-sm/6 font-semibold text-gray-900">
-                  {player.name}
-                </p>
-                <p className="mt-1 truncate text-xs/5 text-gray-500">
-                  {player.position.primary}
-                </p>
+          <Link to={"/" + player.id}>
+            <li
+              key={player.id}
+              className="flex justify-between gap-x-6 gap-y-2 py-5"
+            >
+              <div className="flex min-w-0 gap-x-4">
+                <img
+                  alt=""
+                  src={player.photo}
+                  className="size-12 flex-none rounded-full bg-gray-500"
+                />
+                <div className="min-w-0 flex-auto">
+                  <p className="text-sm/6 font-semibold text-gray-900">
+                    {player.name}
+                  </p>
+                  <p className="mt-1 truncate text-xs/5 text-gray-500">
+                    {player.position.primary}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-              <p className="text-sm/6 text-gray-900">
-                Nº {player.jerseyNumber.number}
-              </p>
+              <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                <p className="text-sm/6 text-gray-900">
+                  Nº {player.jerseyNumber.number}
+                </p>
 
-              <div className="mt-1 flex items-center gap-x-1.5">
-                <div
-                  className={`flex-none rounded-full ${
-                    statusClass[
-                      player.status.currentStatus
-                    ]
-                  }/30 p-1`}
-                >
+                <div className="mt-1 flex items-center gap-x-1.5">
                   <div
-                    className={`size-1.5 rounded-full ${
+                    className={`flex-none rounded-full ${
                       statusClass[
                         player.status
                           .currentStatus
                       ]
-                    }`}
-                  />
+                    }/30 p-1`}
+                  >
+                    <div
+                      className={`size-1.5 rounded-full ${
+                        statusClass[
+                          player.status
+                            .currentStatus
+                        ]
+                      }`}
+                    />
+                  </div>
+                  <p className="text-xs/5 text-gray-500">
+                    {player.status.currentStatus}
+                  </p>
                 </div>
-                <p className="text-xs/5 text-gray-500">
-                  {player.status.currentStatus}
-                </p>
               </div>
-            </div>
-          </li>
+            </li>
+          </Link>
         ))}
       </ul>
     </>
