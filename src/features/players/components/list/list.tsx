@@ -1,5 +1,7 @@
-import { getPlayers } from "../api/get-players";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { FilterListPlayers } from "./filter";
+import { OrderListPlayers } from "./order";
+import { usePlayers } from "@/app/provider";
+import { useEffect, useState } from "react";
 
 type statusClassType = {
   Active: string;
@@ -14,49 +16,79 @@ const statusClass: statusClassType = {
 };
 
 export const ListPlayers = () => {
+  const { players: playersContext } =
+    usePlayers();
+  const [players, setPlayers] = useState(
+    playersContext
+  );
+  const [filter, setFilter] =
+    useState<string>("");
+  const [orderBy, setOrderBy] = useState("name");
+
+  useEffect(() => {
+    setPlayers(playersContext);
+  }, [playersContext]);
+
+  useEffect(() => {
+    let filteredPlayers = players;
+
+    if (filter !== "") {
+      filteredPlayers = filteredPlayers.filter(
+        (player) =>
+          [
+            player.name,
+            player.position.primary,
+            player.status.currentStatus,
+          ].some((field) =>
+            field
+              .toLowerCase()
+              .includes(filter.toLowerCase())
+          )
+      );
+    }
+
+    if (orderBy === "name") {
+      filteredPlayers.sort((a, b) =>
+        a.name.localeCompare(b.name)
+      );
+    } else if (orderBy === "position") {
+      filteredPlayers.sort((a, b) =>
+        a.position.primary.localeCompare(
+          b.position.primary
+        )
+      );
+    } else if (orderBy === "status") {
+      filteredPlayers.sort((a, b) =>
+        a.status.currentStatus.localeCompare(
+          b.status.currentStatus
+        )
+      );
+    }
+
+    setPlayers(filteredPlayers);
+  }, [filter, orderBy, players]);
+
   return (
     <>
       <div className="flex mt-2 gap-2">
         <div className="flex-3 rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-          <input
-            id="username"
-            name="username"
-            type="text"
-            placeholder="Filtre por posição ou nome"
-            className="w-full block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6"
+          <FilterListPlayers
+            filter={filter}
+            setFilter={setFilter}
           />
         </div>
         <div className="flex-1">
-          <div className="grid grid-cols-1">
-            <select
-              id="sort"
-              name="sort"
-              autoComplete="off"
-              className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pr-8 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-            >
-              <option value="" disabled selected>
-                Ordenar por
-              </option>
-              <option value="name">Nome</option>
-              <option value="position">
-                Posição
-              </option>
-              <option value="status">
-                Status
-              </option>
-            </select>
-            <ChevronDownIcon
-              aria-hidden="true"
-              className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4"
-            />
-          </div>
+          <OrderListPlayers
+            orderBy={orderBy}
+            setOrderBy={setOrderBy}
+          />
         </div>
       </div>
       <ul
         role="list"
         className="divide-y divide-gray-100"
       >
-        {getPlayers().map((player) => (
+        {players.map((player) => (
           <li
             key={player.id}
             className="flex justify-between gap-x-6 py-5"

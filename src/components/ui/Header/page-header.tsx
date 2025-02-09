@@ -1,11 +1,10 @@
-import * as React from "react";
-
 type ContentLayoutProps = {
-  children: React.ReactNode;
   title: string;
 };
 
-export const PageHeader = ({ children, title }: ContentLayoutProps) => {
+export const PageHeader = ({
+  title,
+}: ContentLayoutProps) => {
   return (
     <>
       <header className="bg-white shadow-sm">
@@ -15,11 +14,6 @@ export const PageHeader = ({ children, title }: ContentLayoutProps) => {
           </h1>
         </div>
       </header>
-      <main>
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          {children}
-        </div>
-      </main>
     </>
   );
 };
