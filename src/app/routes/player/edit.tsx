@@ -1,5 +1,5 @@
 import { ContentLayout } from "@/components/layouts";
-import { EditPlayer } from "@/features/players/edit/edit";
+import { EditPlayer } from "@/features/players/edit/PlayerEdit";
 
 const EditPlayerRoute = () => {
   return (

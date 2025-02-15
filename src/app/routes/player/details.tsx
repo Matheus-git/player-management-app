@@ -1,10 +1,13 @@
 import { ContentLayout } from "@/components/layouts";
-import { DetailsPlayer } from "@/features/players/details/details";
+import { PlayerDetails } from "@/features/players/details/PlayerDetails";
 
 const DetailsPlayerRoute = () => {
   return (
-    <ContentLayout title="Detalhes do jogador">
-      <DetailsPlayer />
+    <ContentLayout
+      title="Detalhes do jogador"
+      goBack={true}
+    >
+      <PlayerDetails />
     </ContentLayout>
   );
 };
