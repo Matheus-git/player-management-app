@@ -25,11 +25,17 @@ export const List: React.FC<ListProps> = ({
       role="list"
       className="divide-y divide-gray-100"
     >
-      {players.map((player) => (
-        <Link to={"/" + player.id}>
+      {players.map((player, index) => (
+        <Link
+          to={"/" + player.id}
+          key={player.id}
+        >
           <li
-            key={player.id}
-            className="flex justify-between gap-x-6 gap-y-2 py-5"
+            className={`mt-1 rounded-2xl flex justify-between gap-x-6 gap-y-2 p-5 ${
+              index % 2 === 0
+                ? "bg-gray-50"
+                : "bg-gray-100"
+            }`}
           >
             <div className="flex min-w-0 gap-x-4">
               <img

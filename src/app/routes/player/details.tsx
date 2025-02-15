@@ -5,7 +5,7 @@ const DetailsPlayerRoute = () => {
   return (
     <ContentLayout
       title="Detalhes do jogador"
-      goBack={true}
+      goBack
     >
       <PlayerDetails />
     </ContentLayout>
