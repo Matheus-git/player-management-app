@@ -7,6 +7,7 @@ This is a React-based application designed for managing player data, including d
 This project was created as a challenge to practice React and TypeScript, with minimal usage of artificial intelligence. The code utilized was refactored to ensure better organization and maintainability. The main objective was to build a user-friendly interface for managing player details, with features like sorting by name and filtering by position, while also utilizing `localStorage` for persistent data.
 
 
+![List players](./docs/list.png)
 ## Features
 
 - Add new players with detailed information (name, position, nationality, etc.)
