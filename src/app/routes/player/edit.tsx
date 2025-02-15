@@ -1,5 +1,5 @@
 import { ContentLayout } from "@/components/layouts";
-import { EditPlayer } from "@/features/players/edit/PlayerEdit";
+import { PlayerEdit } from "@/features/players/edit/PlayerEdit";
 
 const EditPlayerRoute = () => {
   return (
@@ -7,7 +7,7 @@ const EditPlayerRoute = () => {
       title="Edição do jogador"
       goBack
     >
-      <EditPlayer />
+      <PlayerEdit />
     </ContentLayout>
   );
 };

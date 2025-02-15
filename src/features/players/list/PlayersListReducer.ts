@@ -15,12 +15,11 @@ type PlayersAction =
       };
     };
 
-export default function playersReducer(
+export default function playersListReducer(
   state: player[],
   action: PlayersAction
 ) {
-  const { players: playersContext } =
-    usePlayers();
+  const playersContext = usePlayers();
 
   switch (action.type) {
     case "SET_FILTER_TEXT":

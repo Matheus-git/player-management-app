@@ -1,34 +1,45 @@
 import React, {
   createContext,
   useContext,
-  useState,
+  useReducer,
+  Reducer,
+  Dispatch,
 } from "react";
 import { player } from "@/features/players/commom/types/players";
 import { getPlayers } from "@/features/players/commom/api/get-players";
 
-interface PlayersContextType {
-  players: player[];
-  setPlayers: React.Dispatch<
-    React.SetStateAction<player[]>
-  >;
-  updatePlayer: (
-    id: string,
-    newPlayerData: Partial<player>
-  ) => void;
-}
+const PlayersContext = createContext<player[]>(
+  getPlayers()
+);
 
-const PlayersContext = createContext<
-  PlayersContextType | undefined
->(undefined);
+const PlayersDispatchContext =
+  createContext<Dispatch<PlayersAction> | null>(
+    null
+  );
 
 export const usePlayers = () => {
-  const context = useContext(PlayersContext);
-  if (!context) {
-    throw new Error(
-      "usePlayers deve ser usado dentro de um PlayersProvider"
-    );
+  return useContext(PlayersContext);
+};
+
+export const usePlayersDispatch = () => {
+  return useContext(PlayersDispatchContext);
+};
+
+type PlayersAction = {
+  type: "SET_PLAYER";
+  player: player;
+};
+
+const playersReducer: Reducer<
+  player[],
+  PlayersAction
+> = (state = [], action) => {
+  switch (action.type) {
+    case "SET_PLAYER":
+      return [...state, action.player];
+    default:
+      return state;
   }
-  return context;
 };
 
 interface PlayersProviderProps {
@@ -38,32 +49,18 @@ interface PlayersProviderProps {
 export const PlayersProvider: React.FC<
   PlayersProviderProps
 > = ({ children }) => {
-  const [players, setPlayers] = useState<
-    player[]
-  >(getPlayers());
-
-  const updatePlayer = (
-    id: string,
-    newPlayerData: Partial<player>
-  ) => {
-    setPlayers((prevPlayers) =>
-      prevPlayers.map((player) =>
-        player.name === id
-          ? { ...player, ...newPlayerData }
-          : player
-      )
-    );
-  };
+  const [players, dispatch] = useReducer(
+    playersReducer,
+    getPlayers()
+  );
 
   return (
-    <PlayersContext.Provider
-      value={{
-        players,
-        setPlayers,
-        updatePlayer,
-      }}
-    >
-      {children}
+    <PlayersContext.Provider value={players}>
+      <PlayersDispatchContext.Provider
+        value={dispatch}
+      >
+        {children}
+      </PlayersDispatchContext.Provider>
     </PlayersContext.Provider>
   );
 };

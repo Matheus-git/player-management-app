@@ -2,15 +2,14 @@ import { useReducer, ChangeEvent } from "react";
 import { FilterListPlayers } from "./PureComponents/filter";
 import { OrderListPlayers } from "./PureComponents/order";
 import { usePlayers } from "@/app/provider";
-import playersReducer from "./PlayersListReducer";
+import playersListReducer from "./PlayersListReducer";
 import { List } from "./PureComponents/list";
 
 export const PlayersList = () => {
-  const { players: playersContext } =
-    usePlayers();
+  const playersContext = usePlayers();
 
   const [players, dispatch] = useReducer(
-    playersReducer,
+    playersListReducer,
     playersContext
   );
 
