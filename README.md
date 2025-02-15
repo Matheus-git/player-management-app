@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+# Player Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a React-based application designed for managing player data, including details such as status, position, nationality, and physical data. Players can be added, edited, and stored locally for persistence.
 
-Currently, two official plugins are available:
+## About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project was created as a challenge to practice React and TypeScript, with minimal usage of artificial intelligence. The code utilized was refactored to ensure better organization and maintainability. The main objective was to build a user-friendly interface for managing player details, with features like sorting by name and filtering by position, while also utilizing `localStorage` for persistent data.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Features
 
-- Configure the top-level `parserOptions` property like this:
+- Add new players with detailed information (name, position, nationality, etc.)
+- Edit player details, including status and position
+- Filter players by name or position
+- Persistent storage with `localStorage`
+- Display sorted player list by name
+- Status management with predefined values ("Active", "Injured", "Suspended")
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Requirements
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- Node.js (version 14 or higher)
+- React (v17+)
+- TypeScript
+- LocalStorage support (for storing player data)
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Installation
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Clone this repository:
+ ```sh
+ git clone https://github.com/your-username/player-management-app.git
+ cd player-management-app
+ ```
+2.Install dependencies:
+  ```sh
+    npm install
+  ```
+3.Start the development server
+   ```sh
+   npm run dev
+   ```
+
+## Usage
+
+### Adding a new player:
+- Fill out the form with the player's details and click "Add Player" to add them to the list.
+
+### Editing a player's information:
+- Click on the player in the list to open the edit form, make changes, and save them.
+
+### Filtering players:
+- Use the search bar to filter players by name.
+- Use the dropdown menu to filter players by position.
+
+### Sorting players:
+- The player list is automatically sorted alphabetically by name.
+
+## Storage
+
+- Player data is stored in the browser's `localStorage`, allowing the data to persist even after the page is reloaded.
+- The data is updated whenever a player is added or edited.
+
+## Improvements
+
+- Implement search functionality for filtering players by other attributes, such as nationality or jersey number.
+- Add more customization options for managing player data.
+- Implement a user authentication system to secure player data.
+
+## Contribution
+
+If you'd like to suggest improvements or report issues, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
