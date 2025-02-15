@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router";
 import List from "./routes/player/list";
 import Details from "./routes/player/details";
+import Edit from "./routes/player/edit";
 
 export const AppRouter = () => {
   return (
@@ -12,7 +13,7 @@ export const AppRouter = () => {
       />
       <Route
         path="/:playerId/edit"
-        element={<Details />}
+        element={<Edit />}
       />
     </Routes>
   );

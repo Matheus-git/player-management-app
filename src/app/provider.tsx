@@ -3,8 +3,8 @@ import React, {
   useContext,
   useState,
 } from "react";
-import { player } from "@/features/players/types/players";
-import { getPlayers } from "@/features/players/api/get-players";
+import { player } from "@/features/players/commom/types/players";
+import { getPlayers } from "@/features/players/commom/api/get-players";
 
 interface PlayersContextType {
   players: player[];

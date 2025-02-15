@@ -1,5 +1,5 @@
 import { ContentLayout } from "@/components/layouts";
-import { DetailsPlayer } from "@/features/players/components/details/details";
+import { DetailsPlayer } from "@/features/players/details/details";
 
 const DetailsPlayerRoute = () => {
   return (

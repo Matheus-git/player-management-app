@@ -1,10 +1,10 @@
 import { ContentLayout } from "@/components/layouts";
-import { ListPlayers } from "@/features/players/components/list/list";
+import { PlayersList } from "@/features/players/list/PlayersList";
 
 const ListPlayersRoute = () => {
   return (
     <ContentLayout title="Listagem de jogadores">
-      <ListPlayers />
+      <PlayersList />
     </ContentLayout>
   );
 };
