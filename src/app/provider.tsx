@@ -12,10 +12,14 @@ const PlayersContext = createContext<player[]>(
   getPlayers()
 );
 
+type PlayersAction = {
+  type: "SET_PLAYER";
+  player: player;
+};
+
+const noop = () => {};
 const PlayersDispatchContext =
-  createContext<Dispatch<PlayersAction> | null>(
-    null
-  );
+  createContext<Dispatch<PlayersAction>>(noop);
 
 export const usePlayers = () => {
   return useContext(PlayersContext);
@@ -25,18 +29,27 @@ export const usePlayersDispatch = () => {
   return useContext(PlayersDispatchContext);
 };
 
-type PlayersAction = {
-  type: "SET_PLAYER";
-  player: player;
-};
-
 const playersReducer: Reducer<
   player[],
   PlayersAction
 > = (state = [], action) => {
   switch (action.type) {
     case "SET_PLAYER":
-      return [...state, action.player];
+      const updatedPlayers = state.some(
+        (p) => p.id === action.player.id
+      )
+        ? state.map((p) =>
+            p.id === action.player.id
+              ? action.player
+              : p
+          )
+        : [...state, action.player];
+
+      localStorage.setItem(
+        "players",
+        JSON.stringify(updatedPlayers)
+      );
+      return updatedPlayers;
     default:
       return state;
   }

@@ -9,8 +9,7 @@ export const PlayerDetails = () => {
   const navigate = useNavigate();
 
   let { playerId } = useParams();
-  const { players: playersContext } =
-    usePlayers();
+  const playersContext = usePlayers();
   const foundPlayer = playersContext.find(
     (player) =>
       playerId && player.id === parseInt(playerId)
@@ -30,7 +29,7 @@ export const PlayerDetails = () => {
           onClick={handleEdit}
           className="cursor-pointer rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Editar
+          Editar status
         </button>
       </div>
       <div className="mt-4 border-t border-gray-100">
